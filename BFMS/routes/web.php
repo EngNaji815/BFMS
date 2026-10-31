@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\EmployeeController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -7,22 +8,16 @@ Route::get('/', function () {
 });
 
 
-// ====================
-// Admin
-// ====================
-
 Route::middleware(['auth', 'role:admin'])->group(function () {
 
     Route::get('/admin/dashboard', function () {
         return view('admin.dashboard');
     })->name('admin.dashboard');
+       Route::resource('employees', EmployeeController::class);
 
 });
 
 
-// ====================
-// Manager
-// ====================
 
 Route::middleware(['auth', 'role:manager'])->group(function () {
 

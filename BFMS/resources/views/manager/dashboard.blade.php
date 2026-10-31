@@ -1,20 +1,39 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Manager Dashboard</title>
-</head>
-<body>
+@extends('layouts.master')
 
-    <h1>Manager Dashboard</h1>
+@section('title', 'Manager Dashboard')
 
-    <p>Welcome, {{ auth()->user()->name }}</p>
-    <p>Your role: {{ auth()->user()->role }}</p>
+@section('page-title', 'Manager Dashboard')
 
-    <form method="POST" action="{{ route('logout') }}">
-        @csrf
-        <button type="submit">Logout</button>
-    </form>
+@section('content')
 
-</body>
-</html>
+<div class="mb-7">
+    <h1 class="text-2xl font-bold text-slate-900">
+        Project Operations
+    </h1>
+
+    <p class="mt-1 text-sm text-slate-500">
+        Monitor projects, employees and daily construction activities.
+    </p>
+</div>
+
+
+<div class="grid gap-5 md:grid-cols-3">
+
+    <div class="rounded-xl border border-slate-200 bg-white p-5">
+        <p class="text-sm text-slate-500">Active Projects</p>
+        <h3 class="mt-2 text-3xl font-semibold">0</h3>
+    </div>
+
+    <div class="rounded-xl border border-slate-200 bg-white p-5">
+        <p class="text-sm text-slate-500">Assigned Employees</p>
+        <h3 class="mt-2 text-3xl font-semibold">0</h3>
+    </div>
+
+    <div class="rounded-xl border border-slate-200 bg-white p-5">
+        <p class="text-sm text-slate-500">Pending Tasks</p>
+        <h3 class="mt-2 text-3xl font-semibold">0</h3>
+    </div>
+
+</div>
+
+@endsection
